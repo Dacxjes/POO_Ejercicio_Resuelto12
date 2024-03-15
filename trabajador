@@ -1,0 +1,41 @@
+
+package poo_trabajador_ejercicio_resuelto12;
+
+import java.util.Scanner;
+
+public class POO_trabajador_Ejercicio_Resuelto12 {
+
+    public static void main(String[] args) {
+        Scanner trabajador = new Scanner(System.in);
+        
+        String nombre;
+        double num_horas_trab, horas_extras_trab, horas_extras_m8, salario;
+        int valor_hora;
+        
+        System.out.println("Ingrese el nombre del trabajador: ");
+        nombre = trabajador.next();
+        System.out.println("Ingrese el numero de horas trabajadas en la semana: ");
+        num_horas_trab = trabajador.nextDouble();
+        System.out.println("Ingrese el valor recibido por una hora normal: ");
+        valor_hora = trabajador.nextInt();
+        
+        if (num_horas_trab > 40) {
+            horas_extras_trab = num_horas_trab - 40;
+            if (horas_extras_trab > 8){
+                horas_extras_m8 = horas_extras_trab - 8;
+                salario = 40 * valor_hora + 16 *valor_hora + horas_extras_m8 * 3 * valor_hora;
+            }
+            else{
+                salario = 40 * valor_hora + horas_extras_trab * 2 * valor_hora;    
+                }
+        } 
+        else{
+              salario = num_horas_trab * valor_hora;  
+            }
+    
+        System.out.println("El trabajador " + nombre + " devengo " + salario + " pesos en la semana");
+        
+        trabajador.close();
+    }
+    
+}
